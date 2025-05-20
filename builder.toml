@@ -5,19 +5,19 @@ description = "Ubi 8 base builder with buildpacks for Node.js, Java, Quarkus and
   version = "0.1.1"
 
 [[buildpacks]]
-  uri = "docker://gcr.io/paketo-buildpacks/quarkus:0.5.0"
+  uri = "docker://docker.io/paketobuildpacks/quarkus:0.5.0"
   version = "0.5.0"
 
 [[buildpacks]]
-  uri = "docker://gcr.io/paketo-buildpacks/java:18.5.0"
+  uri = "docker://docker.io/paketobuildpacks/java:18.5.0"
   version = "18.5.0"
 
 [[buildpacks]]
-  uri = "docker://gcr.io/paketo-buildpacks/nodejs:7.8.2"
+  uri = "docker://docker.io/paketobuildpacks/nodejs:7.8.2"
   version = "7.8.2"
 
 [[buildpacks]]
-  uri = "docker://gcr.io/paketo-buildpacks/procfile:5.11.0"
+  uri = "docker://docker.io/paketobuildpacks/procfile:5.11.0"
   version = "5.11.0"
 
 [[extensions]]

@@ -13,8 +13,8 @@ description = "Ubi 8 base builder with buildpacks for Node.js, Java, Quarkus and
   version = "18.8.0"
 
 [[buildpacks]]
-  uri = "docker://docker.io/paketobuildpacks/nodejs:7.9.1"
-  version = "7.9.1"
+  uri = "docker://docker.io/paketobuildpacks/nodejs:7.9.2"
+  version = "7.9.2"
 
 [[buildpacks]]
   uri = "docker://docker.io/paketobuildpacks/procfile:5.11.0"
@@ -52,7 +52,7 @@ description = "Ubi 8 base builder with buildpacks for Node.js, Java, Quarkus and
 
   [[order.group]]
     id = "paketo-buildpacks/nodejs"
-    version = "7.9.1"
+    version = "7.9.2"
 
 [[order]]
 
@@ -71,7 +71,7 @@ description = "Ubi 8 base builder with buildpacks for Node.js, Java, Quarkus and
     version = "1.3.6"
 
 [stack]
-  build-image = "docker.io/paketobuildpacks/build-ubi8-base:0.0.122"
+  build-image = "docker.io/paketobuildpacks/build-ubi8-base:0.0.123"
   id = "io.buildpacks.stacks.ubi8"
   run-image = "index.docker.io/paketobuildpacks/run-ubi8-base:latest"
   run-image-mirrors = []

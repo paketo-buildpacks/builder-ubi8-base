@@ -9,16 +9,16 @@ description = "Ubi 8 base builder with buildpacks for Node.js, Java, Quarkus and
   version = "0.5.0"
 
 [[buildpacks]]
-  uri = "docker://docker.io/paketobuildpacks/java:18.8.0"
-  version = "18.8.0"
+  uri = "docker://docker.io/paketobuildpacks/java:18.9.0"
+  version = "18.9.0"
 
 [[buildpacks]]
   uri = "docker://docker.io/paketobuildpacks/nodejs:7.9.2"
   version = "7.9.2"
 
 [[buildpacks]]
-  uri = "docker://docker.io/paketobuildpacks/procfile:5.11.0"
-  version = "5.11.0"
+  uri = "docker://docker.io/paketobuildpacks/procfile:5.11.1"
+  version = "5.11.1"
 
 [[extensions]]
   id = "paketo-community/ubi-java-extension"
@@ -46,7 +46,7 @@ description = "Ubi 8 base builder with buildpacks for Node.js, Java, Quarkus and
 
   [[order.group]]
     id = "paketo-buildpacks/java"
-    version = "18.8.0"
+    version = "18.9.0"
 
 [[order]]
 
@@ -58,7 +58,7 @@ description = "Ubi 8 base builder with buildpacks for Node.js, Java, Quarkus and
 
   [[order.group]]
     id = "paketo-buildpacks/procfile"
-    version = "5.11.0"
+    version = "5.11.1"
 
 [[order-extensions]]
 

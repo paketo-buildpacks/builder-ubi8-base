@@ -13,8 +13,8 @@ description = "Ubi 8 base builder with buildpacks for Node.js, Java, Quarkus and
   version = "18.12.0"
 
 [[buildpacks]]
-  uri = "docker://docker.io/paketobuildpacks/nodejs:9.2.2"
-  version = "9.2.2"
+  uri = "docker://docker.io/paketobuildpacks/nodejs:9.3.0"
+  version = "9.3.0"
 
 [[buildpacks]]
   uri = "docker://docker.io/paketobuildpacks/procfile:5.11.2"
@@ -52,7 +52,7 @@ description = "Ubi 8 base builder with buildpacks for Node.js, Java, Quarkus and
 
   [[order.group]]
     id = "paketo-buildpacks/nodejs"
-    version = "9.2.2"
+    version = "9.3.0"
 
 [[order]]
 

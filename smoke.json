@@ -1,0 +1,5 @@
+{
+  "procfile" : "docker.io/paketobuildpacks/procfile",
+  "go-dist" : "docker.io/paketobuildpacks/go-dist",
+  "build-plan" : "docker.io/paketocommunity/build-plan"
+}

@@ -1,0 +1,16 @@
+{
+    "builders": [
+        {
+            "name": "builder-ubi8-base",
+            "path": ".",
+            "container_repository": "builder-ubi8-base",
+            "test_runners": ["ubuntu-24.04"],
+            "test_data": [
+                {
+                    "sample_dir": "nodejs/npm",
+                    "test_dir": "smoke/testdata/nodejs/npm"
+                }
+            ]
+        }
+    ]
+}

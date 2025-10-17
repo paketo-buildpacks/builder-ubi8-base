@@ -51,7 +51,7 @@ func testNodejs(t *testing.T, context spec.G, it spec.S) {
 
 		it("builds successfully", func() {
 			var err error
-			source, err = occam.Source(filepath.Join("testdata", "nodejs"))
+			source, err = occam.Source(filepath.Join("testdata", "nodejs", "npm"))
 			Expect(err).NotTo(HaveOccurred())
 
 			var logs fmt.Stringer

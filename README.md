@@ -1,8 +1,16 @@
 # Paketo Ubi 8 Base Builder
 
-## `paketobuildpacks/builder-ubi8-base`
+## `docker.io/paketobuildpacks/builder-ubi8-base`
 
 This builder uses the [Paketo Ubi8 Base Stack](https://github.com/paketo-buildpacks/ubi8-base-stack) (ubi 8 build and run images) with buildpacks for Node.js and Java.
+
+For example, with the `pack` CLI:
+
+```
+pack build my-app \
+    --path ./path/to/app \
+    --builder docker.io/paketobuildpacks/builder-ubi8-base
+```
 
 To see which versions of build and run images, buildpacks, and the lifecycle that are contained within a given builder version, see the [Releases](https://github.com/paketo-buildpacks/builder-ubi8-base/releases) on this repository. This information is also available in the `builder.toml`.
 

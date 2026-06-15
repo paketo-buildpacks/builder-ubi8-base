@@ -8,20 +8,20 @@ description = "Ubi 8 base builder with buildpacks for Node.js, Java, Quarkus and
   version = "0.1.1"
 
 [[buildpacks]]
-  uri = "docker://docker.io/paketobuildpacks/quarkus:0.8.3"
-  version = "0.8.3"
+  uri = "docker://docker.io/paketobuildpacks/quarkus:0.8.4"
+  version = "0.8.4"
 
 [[buildpacks]]
-  uri = "docker://docker.io/paketobuildpacks/java:22.0.0"
-  version = "22.0.0"
+  uri = "docker://docker.io/paketobuildpacks/java:22.1.0"
+  version = "22.1.0"
 
 [[buildpacks]]
-  uri = "docker://docker.io/paketobuildpacks/nodejs:10.3.3"
-  version = "10.3.3"
+  uri = "docker://docker.io/paketobuildpacks/nodejs:10.3.4"
+  version = "10.3.4"
 
 [[buildpacks]]
-  uri = "docker://docker.io/paketobuildpacks/procfile:5.13.3"
-  version = "5.13.3"
+  uri = "docker://docker.io/paketobuildpacks/procfile:5.13.4"
+  version = "5.13.4"
 
 [[extensions]]
   id = "paketo-community/ubi-java-extension"
@@ -30,8 +30,8 @@ description = "Ubi 8 base builder with buildpacks for Node.js, Java, Quarkus and
 
 [[extensions]]
   id = "paketo-buildpacks/ubi-nodejs-extension"
-  uri = "docker://docker.io/paketobuildpacks/ubi-nodejs-extension:1.6.25"
-  version = "1.6.25"
+  uri = "docker://docker.io/paketobuildpacks/ubi-nodejs-extension:1.6.26"
+  version = "1.6.26"
 
 [lifecycle]
   version = "0.21.12"
@@ -45,23 +45,23 @@ description = "Ubi 8 base builder with buildpacks for Node.js, Java, Quarkus and
   [[order.group]]
     id = "paketo-buildpacks/quarkus"
     optional = true
-    version = "0.8.3"
+    version = "0.8.4"
 
   [[order.group]]
     id = "paketo-buildpacks/java"
-    version = "22.0.0"
+    version = "22.1.0"
 
 [[order]]
 
   [[order.group]]
     id = "paketo-buildpacks/nodejs"
-    version = "10.3.3"
+    version = "10.3.4"
 
 [[order]]
 
   [[order.group]]
     id = "paketo-buildpacks/procfile"
-    version = "5.13.3"
+    version = "5.13.4"
 
 [[order-extensions]]
 
@@ -71,7 +71,7 @@ description = "Ubi 8 base builder with buildpacks for Node.js, Java, Quarkus and
 
   [[order-extensions.group]]
     id = "paketo-buildpacks/ubi-nodejs-extension"
-    version = "1.6.25"
+    version = "1.6.26"
 
 [run]
 

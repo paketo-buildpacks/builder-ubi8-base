@@ -1,7 +1,6 @@
 package smoke_test
 
 import (
-	"fmt"
 	"os"
 	"path/filepath"
 	"testing"
@@ -29,7 +28,7 @@ func testNodejs(t *testing.T, context spec.G, it spec.S) {
 
 	context("detects a Nodejs app", func() {
 		var (
-			image     occam.Image
+			imageIDs  []string
 			container occam.Container
 
 			name   string
@@ -45,7 +44,9 @@ func testNodejs(t *testing.T, context spec.G, it spec.S) {
 		it.After(func() {
 			Expect(docker.Container.Remove.Execute(container.ID)).To(Succeed())
 			Expect(docker.Volume.Remove.Execute(occam.CacheVolumeNames(name))).To(Succeed())
-			Expect(docker.Image.Remove.Execute(image.ID)).To(Succeed())
+			for _, id := range imageIDs {
+				Expect(docker.Image.Remove.Execute(id)).To(Succeed())
+			}
 			Expect(os.RemoveAll(source)).To(Succeed())
 		})
 
@@ -54,28 +55,32 @@ func testNodejs(t *testing.T, context spec.G, it spec.S) {
 			source, err = occam.Source(filepath.Join("testdata", "nodejs", "npm"))
 			Expect(err).NotTo(HaveOccurred())
 
-			var logs fmt.Stringer
-			image, logs, err = pack.Build.
+			build := pack.Build.
 				WithNetwork("host").
 				WithPullPolicy("always").
-				WithBuilder(Builder).
-				Execute(name, source)
-			Expect(err).ToNot(HaveOccurred(), logs.String)
+				WithBuilder(Builder)
+
+			_, firstLogs, err := build.Execute(name, source)
+			Expect(err).NotTo(HaveOccurred(), firstLogs.String)
+
+			secondImage, secondLogs, err := build.Execute(name, source)
+			Expect(err).ToNot(HaveOccurred(), secondLogs.String)
+			imageIDs = append(imageIDs, secondImage.ID)
 
 			container, err = docker.Container.Run.
 				WithEnv(map[string]string{"PORT": "8080"}).
 				WithPublish("8080").
-				Execute(image.ID)
+				Execute(secondImage.ID)
 			Expect(err).NotTo(HaveOccurred())
 
 			Eventually(container).Should(BeAvailable())
 
-			Expect(logs).To(ContainLines(ContainSubstring("Paketo Buildpack for Node Engine")))
-			Expect(logs).To(ContainLines(ContainSubstring("Paketo Buildpack for NPM Install")))
-			Expect(logs).To(ContainLines(ContainSubstring("Paketo Buildpack for NPM Start")))
-			Expect(logs).To(ContainLines(ContainSubstring("[extender (build)] Enabling module streams")))
-			Expect(logs).To(ContainLines(MatchRegexp(`nodejs:\d+`)))
-			Expect(logs).To(ContainLines(ContainSubstring("[extender (build)]   Node no longer requested by plan")))
+			Expect(secondLogs).To(ContainLines(ContainSubstring("Paketo Buildpack for Node Engine")))
+			Expect(secondLogs).To(ContainLines(ContainSubstring("Paketo Buildpack for NPM Install")))
+			Expect(secondLogs).To(ContainLines(ContainSubstring("Paketo Buildpack for NPM Start")))
+			Expect(secondLogs).To(ContainLines(ContainSubstring("[extender (build)] Enabling module streams")))
+			Expect(secondLogs).To(ContainLines(MatchRegexp(`nodejs:\d+`)))
+			Expect(secondLogs).To(ContainLines(ContainSubstring("[extender (build)]   Node no longer requested by plan")))
 		})
 	})
 }

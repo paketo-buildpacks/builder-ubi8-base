@@ -1,86 +1,81 @@
-description = "Ubi 8 base builder with buildpacks for Node.js, Java, Quarkus and Procfile"
-
-[build]
-  image = "docker.io/paketobuildpacks/build-ubi8-base:0.0.321"
+description = 'Ubi 8 base builder with buildpacks for Node.js, Java, Quarkus and Procfile'
 
 [[buildpacks]]
-  uri = "docker://docker.io/paketocommunity/ubi-java-buildpack:0.1.1"
-  version = "0.1.1"
+uri = 'docker://docker.io/paketocommunity/ubi-java-buildpack:0.1.1'
+version = '0.1.1'
 
 [[buildpacks]]
-  uri = "docker://docker.io/paketobuildpacks/quarkus:0.10.2"
-  version = "0.10.2"
+uri = 'docker://docker.io/paketobuildpacks/quarkus:0.10.2'
+version = '0.10.2'
 
 [[buildpacks]]
-  uri = "docker://docker.io/paketobuildpacks/java:22.8.0"
-  version = "22.8.0"
+uri = 'docker://docker.io/paketobuildpacks/java:22.8.0'
+version = '22.8.0'
 
 [[buildpacks]]
-  uri = "docker://docker.io/paketobuildpacks/nodejs:10.15.0"
-  version = "10.15.0"
+uri = 'docker://docker.io/paketobuildpacks/nodejs:10.15.0'
+version = '10.15.0'
 
 [[buildpacks]]
-  uri = "docker://docker.io/paketobuildpacks/procfile:5.15.7"
-  version = "5.15.7"
-
-[[extensions]]
-  id = "paketo-community/ubi-java-extension"
-  uri = "docker://docker.io/paketocommunity/ubi-java-extension:0.2.0"
-  version = "0.2.0"
-
-[[extensions]]
-  id = "paketo-buildpacks/ubi-nodejs-extension"
-  uri = "docker://docker.io/paketobuildpacks/ubi-nodejs-extension:1.6.47"
-  version = "1.6.47"
+uri = 'docker://docker.io/paketobuildpacks/procfile:5.15.7'
+version = '5.15.7'
 
 [lifecycle]
-  version = "0.21.28"
+version = '0.21.28'
 
 [[order]]
+[[order.group]]
+id = 'paketo-community/ubi-java-buildpack'
+version = '0.1.1'
 
-  [[order.group]]
-    id = "paketo-community/ubi-java-buildpack"
-    version = "0.1.1"
+[[order.group]]
+id = 'paketo-buildpacks/quarkus'
+version = '0.10.2'
+optional = true
 
-  [[order.group]]
-    id = "paketo-buildpacks/quarkus"
-    optional = true
-    version = "0.10.2"
-
-  [[order.group]]
-    id = "paketo-buildpacks/java"
-    version = "22.8.0"
-
-[[order]]
-
-  [[order.group]]
-    id = "paketo-buildpacks/nodejs"
-    version = "10.15.0"
+[[order.group]]
+id = 'paketo-buildpacks/java'
+version = '22.8.0'
 
 [[order]]
+[[order.group]]
+id = 'paketo-buildpacks/nodejs'
+version = '10.15.0'
 
-  [[order.group]]
-    id = "paketo-buildpacks/procfile"
-    version = "5.15.7"
+[[order]]
+[[order.group]]
+id = 'paketo-buildpacks/procfile'
+version = '5.15.7'
+
+[[extensions]]
+id = 'paketo-community/ubi-java-extension'
+uri = 'docker://docker.io/paketocommunity/ubi-java-extension:0.2.0'
+version = '0.2.0'
+
+[[extensions]]
+id = 'paketo-buildpacks/ubi-nodejs-extension'
+uri = 'docker://docker.io/paketobuildpacks/ubi-nodejs-extension:1.6.47'
+version = '1.6.47'
 
 [[order-extensions]]
+[[order-extensions.group]]
+id = 'paketo-community/ubi-java-extension'
+version = '0.2.0'
 
-  [[order-extensions.group]]
-    id = "paketo-community/ubi-java-extension"
-    version = "0.2.0"
+[[order-extensions.group]]
+id = 'paketo-buildpacks/ubi-nodejs-extension'
+version = '1.6.47'
 
-  [[order-extensions.group]]
-    id = "paketo-buildpacks/ubi-nodejs-extension"
-    version = "1.6.47"
+[build]
+image = 'docker.io/paketobuildpacks/build-ubi8-base:0.0.322'
 
 [run]
-
-  [[run.images]]
-    image = "docker.io/paketobuildpacks/run-ubi8-base:latest"
+[[run.images]]
+image = 'docker.io/paketobuildpacks/run-ubi8-base:latest'
 
 [stack]
-  id = "io.buildpacks.stacks.ubi8"
+id = 'io.buildpacks.stacks.ubi8'
 
 [[targets]]
-  arch = "amd64"
-  os = "linux"
+os = 'linux'
+arch = 'amd64'

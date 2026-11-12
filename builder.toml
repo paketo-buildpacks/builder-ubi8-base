@@ -21,7 +21,7 @@ uri = 'docker://docker.io/paketobuildpacks/procfile:5.15.8'
 version = '5.15.8'
 
 [lifecycle]
-version = '0.21.28'
+version = '0.21.29'
 
 [[order]]
 [[order.group]]
@@ -67,7 +67,7 @@ id = 'paketo-buildpacks/ubi-nodejs-extension'
 version = '1.6.48'
 
 [build]
-image = 'docker.io/paketobuildpacks/build-ubi8-base:0.0.325'
+image = 'docker.io/paketobuildpacks/build-ubi8-base:0.0.326'
 
 [run]
 [[run.images]]

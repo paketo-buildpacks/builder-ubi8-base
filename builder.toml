@@ -9,12 +9,12 @@ uri = 'docker://docker.io/paketobuildpacks/quarkus:0.10.3'
 version = '0.10.3'
 
 [[buildpacks]]
-uri = 'docker://docker.io/paketobuildpacks/java:22.8.0'
-version = '22.8.0'
+uri = 'docker://docker.io/paketobuildpacks/java:22.9.0'
+version = '22.9.0'
 
 [[buildpacks]]
-uri = 'docker://docker.io/paketobuildpacks/nodejs:10.15.0'
-version = '10.15.0'
+uri = 'docker://docker.io/paketobuildpacks/nodejs:10.16.0'
+version = '10.16.0'
 
 [[buildpacks]]
 uri = 'docker://docker.io/paketobuildpacks/procfile:5.15.8'
@@ -35,12 +35,12 @@ optional = true
 
 [[order.group]]
 id = 'paketo-buildpacks/java'
-version = '22.8.0'
+version = '22.9.0'
 
 [[order]]
 [[order.group]]
 id = 'paketo-buildpacks/nodejs'
-version = '10.15.0'
+version = '10.16.0'
 
 [[order]]
 [[order.group]]

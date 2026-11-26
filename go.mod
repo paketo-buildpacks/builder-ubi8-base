@@ -1,6 +1,6 @@
 module github.com/paketo-buildpacks/builder-ubi8-base
 
-go 1.27.3
+go 1.27.4
 
 require (
 	github.com/onsi/gomega v1.44.0
